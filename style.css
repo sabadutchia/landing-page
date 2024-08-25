@@ -1,20 +1,42 @@
-.container, header, .quote div, .quote, .hero {
+body {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+header, .quote div, .quote, .hero {
     display: flex;
+    padding: 0 25%;
 }
 
 .container {
-    height: 100vh;
-    /* padding: 0 100px; */
+    display: flex;
+    /* height: 100vh; */
     flex-direction: column;
     justify-content: space-between;
 }
 
 header{
     justify-content: space-between;
+    background-color: #1f2937;
+    padding-top: 10px;
+    .logo {
+        font-size: 24px;
+        color:#F9FAF8
+    }
+    .links {
+        display: flex;
+        gap: 20px;
+    }
 }
 
 .quote {
     justify-content: center;
+    align-items: center;
+    background-color: #E5E7EB;
+    flex: 1;
     div {
         width: 300px;
         flex-direction: column;
@@ -23,19 +45,42 @@ header{
             text-align: right;
         }
     }
-
+    
 }
 
 .hero {
-    justify-content: center;
+    background-color: #1f2937;
+    flex: 1;
+    justify-content: space-between;
     align-items: center;
-    img {
-        width: 300px;
+    gap: 20px;
+    padding: 5% 25%;
+    .title {
+        width: 450px;
+        .main-text {
+            font-size: 48px;
+            font-weight: bolder;
+            color: #F9FAF8;
+        }
+        .secondary-text {
+            margin-bottom: 20px;
+        }
     }
+    img {
+        flex: 1;
+        max-width: 400px;
+    }
+}
+
+.secondary-text {
+    font-size: 18px;
+    color: #E5E7EB;
+    text-decoration: none;
 }
 
 .info {
     text-align: center;
+    flex: 1;
     .images{
         display: flex;
         flex-wrap: wrap;
@@ -55,6 +100,7 @@ header{
 .signup {
     display: flex;
     justify-content: center;
+    flex: 1;
     div{
         display: flex;
         justify-content: space-around;
@@ -74,4 +120,26 @@ header{
 
 footer {
     text-align: center;
+    background-color: #1f2937;
+    p {
+        margin: 0;
+    }
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+button.filled {
+    background-color: #3882f6;
+    border-radius: 5px;
+    padding: 5px 25px;
+    color: #E5E7EB;
+    font-weight: bold;
 }
