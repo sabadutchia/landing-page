@@ -25,7 +25,8 @@ header{
     padding-top: 10px;
     .logo {
         font-size: 24px;
-        color:#F9FAF8
+        color:#F9FAF8;
+        font-weight: bold;
     }
     .links {
         display: flex;
@@ -40,14 +41,12 @@ header{
     padding: 5% 25%;
     flex: 1;
     .text {
-        font-size: 36px;
+        font-size: 26px;
         font-weight:lighter;
         font-style: italic;
     }
     div {
         width: 700px;
-        /* flex-direction: column;
-        align-content: center; */
         strong {
             display: block;
             text-align: right;
@@ -108,6 +107,7 @@ header{
         img {
             width: 150px;
             height: 150px;
+            object-fit: cover;
             border: solid #3882f6 3px;
             border-radius: 5px;
         }
