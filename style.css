@@ -1,14 +1,15 @@
 body {
     margin: 0;
+    font-family: "Poppins", sans-serif;
 }
 
 p {
     margin: 0;
 }
 
-header, .quote div, .quote, .hero {
+header, .quote, .hero {
     display: flex;
-    padding: 0 25%;
+    padding: 0% 25%;
 }
 
 .container {
@@ -36,12 +37,19 @@ header{
     justify-content: center;
     align-items: center;
     background-color: #E5E7EB;
+    padding: 5% 25%;
     flex: 1;
+    .text {
+        font-size: 36px;
+        font-weight:lighter;
+        font-style: italic;
+    }
     div {
-        width: 300px;
-        flex-direction: column;
-        align-content: center;
+        width: 700px;
+        /* flex-direction: column;
+        align-content: center; */
         strong {
+            display: block;
             text-align: right;
         }
     }
@@ -81,18 +89,27 @@ header{
 .info {
     text-align: center;
     flex: 1;
+    padding: 2% 25% 6%;
+    .text {
+        font-size: 36px;
+        font-weight: bolder;
+        color: #1f2937;
+        margin-bottom: 4%;
+    }
     .images{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-content: center;
-        gap: 10px;
-        img {
-            width: 100px;
+        gap: 40px;
+        div{
+            width: min-content;
         }
-        p {
-            width: 80px;
-            text-align: center;
+        img {
+            width: 150px;
+            height: 150px;
+            border: solid #3882f6 3px;
+            border-radius: 5px;
         }
     }
 }
@@ -100,14 +117,22 @@ header{
 .signup {
     display: flex;
     justify-content: center;
+    padding: 5% 25%;
     flex: 1;
     div{
         display: flex;
         justify-content: space-around;
+        align-items: center;
         width: 600px;
+        background-color: #3882f6;
+        padding: 4% 10%;
+        border-radius: 5px;
+        color: #E5E7EB;
         .text {
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
+            padding: 0;
         }
         button {
             width: fit-content;
@@ -119,9 +144,11 @@ header{
 }
 
 footer {
+    padding: 1% 25%;
     text-align: center;
     background-color: #1f2937;
     p {
+        color: #E5E7EB;
         margin: 0;
     }
 }
@@ -136,10 +163,18 @@ button, input[type="submit"], input[type="reset"] {
 	outline: inherit;
 }
 
+button {
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 5px 25px;
+    white-space: nowrap;
+    height: fit-content;
+}
+
 button.filled {
     background-color: #3882f6;
-    border-radius: 5px;
-    padding: 5px 25px;
     color: #E5E7EB;
-    font-weight: bold;
+}
+button.outlined {
+    border: solid #E5E7EB 2px;
 }
