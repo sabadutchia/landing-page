@@ -1,0 +1,77 @@
+.container, header, .quote div, .quote, .hero {
+    display: flex;
+}
+
+.container {
+    height: 100vh;
+    /* padding: 0 100px; */
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header{
+    justify-content: space-between;
+}
+
+.quote {
+    justify-content: center;
+    div {
+        width: 300px;
+        flex-direction: column;
+        align-content: center;
+        strong {
+            text-align: right;
+        }
+    }
+
+}
+
+.hero {
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 300px;
+    }
+}
+
+.info {
+    text-align: center;
+    .images{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        gap: 10px;
+        img {
+            width: 100px;
+        }
+        p {
+            width: 80px;
+            text-align: center;
+        }
+    }
+}
+
+.signup {
+    display: flex;
+    justify-content: center;
+    div{
+        display: flex;
+        justify-content: space-around;
+        width: 600px;
+        .text {
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            width: fit-content;
+        }
+        h3, p{
+            margin: 0;
+        }
+    }
+}
+
+footer {
+    text-align: center;
+}
