@@ -1,11 +1,10 @@
 body {
   margin: 20px;
   font-family: "Poppins", sans-serif;
-  height: 100vh;
 }
 
 #container {
-  height: 500px;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

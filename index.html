@@ -38,7 +38,6 @@
       gridContainer = document.createElement("div");
       gridContainer.className = "sub-container";
       gridContainer.style.display = "flex";
-      gridContainer.style.maxWidth = "800px";
       gridContainer.style.flex = "1";
 
       for (let i = 0; i < gridSize; i++) {
@@ -48,13 +47,24 @@
 
         gridItem.addEventListener(
           "mouseover",
-          () => (gridItem.style.backgroundColor = "red")
+          () =>
+            (gridItem.style.backgroundColor =
+              gridItem.style.backgroundColor || getRandomColor())
         );
 
         gridContainer.appendChild(gridItem);
       }
       mainDiv.appendChild(gridContainer);
     }
+  };
+
+  const getRandomColor = () => {
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   };
 
   generateGrid();
