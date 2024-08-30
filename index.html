@@ -7,27 +7,55 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="buttons">
+      <button class="filled" id="changeSize-btn">Change size</button>
+      <button class="filled" id="clear-btn">Clear</button>
+    </div>
     <div id="container"></div>
   </body>
 </html>
 
 <script>
   const mainDiv = document.querySelector("#container");
-  const gridSize = 16;
+  const changeSizeBtn = document.querySelector("#changeSize-btn");
+  const clearBtn = document.querySelector("#clear-btn");
+  let gridSize = 16;
   let gridContainer;
 
-  for (let i = 0; i < gridSize; i++) {
-    gridContainer = document.createElement("div");
-    gridContainer.style.display = "flex";
+  changeSizeBtn.addEventListener("click", () => {
+    gridSize = prompt("New size", 16);
+    mainDiv.innerHTML = "";
+    generateGrid();
+  });
 
+  clearBtn.addEventListener("click", () => {
+    mainDiv.innerHTML = "";
+    generateGrid();
+  });
+
+  const generateGrid = () => {
     for (let i = 0; i < gridSize; i++) {
-      const gridItem = document.createElement("div");
-      gridItem.style.border = "solid black 2px";
-      gridItem.style.height = "100px";
-      gridItem.style.flex = "1";
+      gridContainer = document.createElement("div");
+      gridContainer.className = "sub-container";
+      gridContainer.style.display = "flex";
+      gridContainer.style.maxWidth = "800px";
+      gridContainer.style.flex = "1";
 
-      gridContainer.appendChild(gridItem);
+      for (let i = 0; i < gridSize; i++) {
+        const gridItem = document.createElement("div");
+        gridItem.style.border = "solid black 2px";
+        gridItem.style.flex = "1";
+
+        gridItem.addEventListener(
+          "mouseover",
+          () => (gridItem.style.backgroundColor = "red")
+        );
+
+        gridContainer.appendChild(gridItem);
+      }
+      mainDiv.appendChild(gridContainer);
     }
-    mainDiv.appendChild(gridContainer);
-  }
+  };
+
+  generateGrid();
 </script>

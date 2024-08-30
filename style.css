@@ -1,180 +1,41 @@
 body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
+  margin: 20px;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
 }
 
-p {
-    margin: 0;
+#container {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-header, .quote, .hero {
-    display: flex;
-    padding: 0% 25%;
+.buttons {
+  margin-bottom: 10px;
 }
 
-.container {
-    display: flex;
-    /* height: 100vh; */
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-header{
-    justify-content: space-between;
-    background-color: #1f2937;
-    padding-top: 10px;
-    .logo {
-        font-size: 24px;
-        color:#F9FAF8;
-        font-weight: bold;
-    }
-    .links {
-        display: flex;
-        gap: 20px;
-    }
-}
-
-.quote {
-    justify-content: center;
-    align-items: center;
-    background-color: #E5E7EB;
-    padding: 5% 25%;
-    flex: 1;
-    .text {
-        font-size: 26px;
-        font-weight:lighter;
-        font-style: italic;
-    }
-    div {
-        width: 700px;
-        strong {
-            display: block;
-            text-align: right;
-        }
-    }
-    
-}
-
-.hero {
-    background-color: #1f2937;
-    flex: 1;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding: 5% 25%;
-    .title {
-        width: 450px;
-        .main-text {
-            font-size: 48px;
-            font-weight: bolder;
-            color: #F9FAF8;
-        }
-        .secondary-text {
-            margin-bottom: 20px;
-        }
-    }
-    img {
-        flex: 1;
-        max-width: 400px;
-    }
-}
-
-.secondary-text {
-    font-size: 18px;
-    color: #E5E7EB;
-    text-decoration: none;
-}
-
-.info {
-    text-align: center;
-    flex: 1;
-    padding: 2% 25% 6%;
-    .text {
-        font-size: 36px;
-        font-weight: bolder;
-        color: #1f2937;
-        margin-bottom: 4%;
-    }
-    .images{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-content: center;
-        gap: 40px;
-        div{
-            width: min-content;
-        }
-        img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border: solid #3882f6 3px;
-            border-radius: 5px;
-        }
-    }
-}
-
-.signup {
-    display: flex;
-    justify-content: center;
-    padding: 5% 25%;
-    flex: 1;
-    div{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 600px;
-        background-color: #3882f6;
-        padding: 4% 10%;
-        border-radius: 5px;
-        color: #E5E7EB;
-        .text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 0;
-        }
-        button {
-            width: fit-content;
-        }
-        h3, p{
-            margin: 0;
-        }
-    }
-}
-
-footer {
-    padding: 1% 25%;
-    text-align: center;
-    background-color: #1f2937;
-    p {
-        color: #E5E7EB;
-        margin: 0;
-    }
-}
-
-button, input[type="submit"], input[type="reset"] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
 button {
-    border-radius: 5px;
-    font-weight: bold;
-    padding: 5px 25px;
-    white-space: nowrap;
-    height: fit-content;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px 25px;
+  white-space: nowrap;
+  height: fit-content;
 }
 
 button.filled {
-    background-color: #3882f6;
-    color: #E5E7EB;
-}
-button.outlined {
-    border: solid #E5E7EB 2px;
+  background-color: #3882f6;
+  color: #e5e7eb;
 }
