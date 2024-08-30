@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="buttons">
+      <button class="filled" id="changeSize-btn">Change size</button>
+      <button class="filled" id="changeColor-btn">Change color</button>
+      <button class="filled" id="clear-btn">Clear</button>
+    </div>
+    <div id="container"></div>
+  </body>
+</html>
+
+<script>
+  const mainDiv = document.querySelector("#container");
+  const changeSizeBtn = document.querySelector("#changeSize-btn");
+  const clearBtn = document.querySelector("#clear-btn");
+  const changeColorBtn = document.querySelector("#changeColor-btn");
+  let gridSize = 16;
+  let gridColor = "blue";
+  let gridContainer;
+
+  changeSizeBtn.addEventListener("click", () => {
+    gridSize = prompt("New size", 16);
+    mainDiv.innerHTML = "";
+    generateGrid();
+  });
+
+  clearBtn.addEventListener("click", () => {
+    mainDiv.innerHTML = "";
+    generateGrid();
+  });
+
+  changeColorBtn.addEventListener("click", () => {
+    gridColor = prompt("New color", gridColor);
+    // generateGrid();
+  });
+
+  const generateGrid = () => {
+    for (let i = 0; i < gridSize; i++) {
+      gridContainer = document.createElement("div");
+      gridContainer.className = "sub-container";
+      gridContainer.style.display = "flex";
+      gridContainer.style.flex = "1";
+
+      for (let i = 0; i < gridSize; i++) {
+        const gridItem = document.createElement("div");
+        gridItem.style.border = "solid black 2px";
+        gridItem.style.flex = "1";
+
+        gridItem.addEventListener(
+          "mouseover",
+          () =>
+            (gridItem.style.backgroundColor =
+              gridItem.style.backgroundColor ||
+              (gridColor == "random" ? getRandomColor() : gridColor))
+        );
+
+        gridContainer.appendChild(gridItem);
+      }
+      mainDiv.appendChild(gridContainer);
+    }
+  };
+
+  const getRandomColor = () => {
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
+
+  generateGrid();
+</script>

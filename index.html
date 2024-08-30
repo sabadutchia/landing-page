@@ -5,67 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="buttons">
-      <button class="filled" id="changeSize-btn">Change size</button>
-      <button class="filled" id="clear-btn">Clear</button>
+    <div class="container">
+      <header>
+        <div class="logo">Header Logo</div>
+        <div class="links">
+          <a href="etch-a-sketch/index.html" class="secondary-text"
+            >Etch-a-sketch</a
+          >
+          <a href="#" class="secondary-text">Link two</a>
+          <a href="#" class="secondary-text">Link three</a>
+        </div>
+      </header>
+      <div class="hero">
+        <div class="title">
+          <p class="main-text">This website is awesome</p>
+          <p class="secondary-text">
+            This website has some subtext that goes here under the main title.
+            It's a smaller font and the color is lower contrast
+          </p>
+          <button class="filled">Sign up</button>
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1723844944367-9332e405fd6c?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Tools image"
+          srcset=""
+        />
+      </div>
+      <div class="info">
+        <p class="text">Some random information</p>
+        <div class="images">
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1723844944367-9332e405fd6c?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <p>this is some subtext under an illustration</p>
+          </div>
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1723844944367-9332e405fd6c?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <p>this is some subtext under an illustration</p>
+          </div>
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1723844944367-9332e405fd6c?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <p>this is some subtext under an illustration</p>
+          </div>
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1723844944367-9332e405fd6c?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <p>this is some subtext under an illustration</p>
+          </div>
+        </div>
+      </div>
+      <div class="quote">
+        <div>
+          <p class="text">
+            It may take you longer than others to grasp concepts, or it may take
+            you less time. This doesn’t mean you’re smarter or dumber than
+            others, it means you’ve had differing life experiences that may or
+            may not have prepared you for learning those concepts.
+          </p>
+          <strong>-The Odin Project</strong>
+        </div>
+      </div>
+      <div class="signup">
+        <div>
+          <div class="text">
+            <h3>Call to action! It's time!</h3>
+            <p>Sign up for our product by clicking that button over there</p>
+          </div>
+          <button class="outlined">Sign up</button>
+        </div>
+      </div>
     </div>
-    <div id="container"></div>
+    <footer>
+      <p>Copyright © Sabadutchia 2024</p>
+    </footer>
   </body>
 </html>
-
-<script>
-  const mainDiv = document.querySelector("#container");
-  const changeSizeBtn = document.querySelector("#changeSize-btn");
-  const clearBtn = document.querySelector("#clear-btn");
-  let gridSize = 16;
-  let gridContainer;
-
-  changeSizeBtn.addEventListener("click", () => {
-    gridSize = prompt("New size", 16);
-    mainDiv.innerHTML = "";
-    generateGrid();
-  });
-
-  clearBtn.addEventListener("click", () => {
-    mainDiv.innerHTML = "";
-    generateGrid();
-  });
-
-  const generateGrid = () => {
-    for (let i = 0; i < gridSize; i++) {
-      gridContainer = document.createElement("div");
-      gridContainer.className = "sub-container";
-      gridContainer.style.display = "flex";
-      gridContainer.style.flex = "1";
-
-      for (let i = 0; i < gridSize; i++) {
-        const gridItem = document.createElement("div");
-        gridItem.style.border = "solid black 2px";
-        gridItem.style.flex = "1";
-
-        gridItem.addEventListener(
-          "mouseover",
-          () =>
-            (gridItem.style.backgroundColor =
-              gridItem.style.backgroundColor || getRandomColor())
-        );
-
-        gridContainer.appendChild(gridItem);
-      }
-      mainDiv.appendChild(gridContainer);
-    }
-  };
-
-  const getRandomColor = () => {
-    let letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  };
-
-  generateGrid();
-</script>
