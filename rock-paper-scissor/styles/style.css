@@ -1,0 +1,36 @@
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: poppins;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+}
+
+button {
+  height: 100px;
+  background-color: transparent;
+  border: none;
+}
+
+button img {
+  height: 100%;
+}
+
+button img:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+}
+
+.score p {
+  font-weight: bold;
+}

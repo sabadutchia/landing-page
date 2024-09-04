@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        <span class="rock">Rock</span> <span class="paper">paper</span>
+        <span class="scissor">scissor</span>
+      </h1>
+      <div class="score">
+        <p class="human">You: <span>0</span></p>
+        <p class="computer">Computer: <span>0</span></p>
+      </div>
+      <div class="buttons">
+        <button id="rock-button"><img src="assets/rock.png" alt="" /></button>
+        <button id="paper-button"><img src="assets/paper.png" alt="" /></button>
+        <button id="scissor-button">
+          <img src="assets/scissor.png" alt="" />
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const GAME_OPTIONS = { rock: "rock", paper: "paper", scissor: "scissor" };
+  let humanChoice = "";
+  let humanScore = 0;
+  let computerScore = 0;
+
+  const getComputerChoice = () => {
+    const optionSelected = Math.floor(Math.random() * 3);
+    return Object.keys(GAME_OPTIONS)[optionSelected];
+  };
+
+  const paperButton = document.querySelector("#paper-button");
+  const rockButton = document.querySelector("#rock-button");
+  const scissorButton = document.querySelector("#scissor-button");
+
+  [paperButton, rockButton, scissorButton].forEach((element) =>
+    element.addEventListener("click", () => {
+      setHumanChoice(element.id.split("-")[0]);
+      playGame();
+    })
+  );
+
+  const humanScoreElement = document.querySelector(".score .human span");
+  const computerScoreElement = document.querySelector(".score .computer span");
+
+  const setHumanChoice = (optionSelected) => {
+    humanChoice = optionSelected;
+  };
+
+  const playGame = () => {
+    let roundWinner = "";
+
+    const playRound = (humanChoice, computerChoice) => {
+      roundWinner = "none";
+      if (humanChoice !== computerChoice) {
+        if (
+          (humanChoice == GAME_OPTIONS.paper &&
+            computerChoice == GAME_OPTIONS.rock) ||
+          (humanChoice == GAME_OPTIONS.scissor &&
+            computerChoice == GAME_OPTIONS.paper) ||
+          (humanChoice == GAME_OPTIONS.rock &&
+            computerChoice == GAME_OPTIONS.scissor)
+        ) {
+          humanWinner();
+        } else {
+          computerWinner();
+        }
+      }
+
+      if (computerScore == 5) gameWinner("Computer won");
+      if (humanScore == 5) gameWinner("Human won");
+    };
+
+    const humanWinner = () => {
+      roundWinner = "Human";
+      humanScoreElement.textContent = ++humanScore;
+    };
+
+    const computerWinner = () => {
+      roundWinner = "Computer";
+      computerScoreElement.textContent = ++computerScore;
+    };
+
+    const gameWinner = (text) => {
+      alert(text);
+      computerScore = 0;
+      humanScore = 0;
+      computerScoreElement.textContent = computerScore;
+      humanScoreElement.textContent = humanScore;
+    };
+
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+  };
+</script>
