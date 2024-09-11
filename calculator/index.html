@@ -4,11 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <input type="text" />
+      <div class="buttons-container">
+        <div class="left-items">
+          <div class="numbers">
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+          </div>
+          <div class="numbers">
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+          </div>
+          <div class="numbers">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+          </div>
+          <div class="buttons">
+            <button class="secondary">C</button>
+            <button class="primary">0</button>
+            <button class="secondary">=</button>
+          </div>
+        </div>
+        <div class="right-items">
+          <button>+</button>
+          <button>-</button>
+          <button>x</button>
+          <button>/</button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
 
 <script>
+  const OPERATORS = { add: "+", substract: "-", multiply: "*", divide: "/" };
+
+  let num1 = 0;
+  let num2 = 0;
+  let operator = "";
+
+  const operate = (num1, num2, operator) => {
+    switch (operator) {
+      case Operators.add:
+        add(num1, num2);
+        break;
+      case Operators.substract:
+        substract(num1, num2);
+        break;
+      case Operators.multiply:
+        multiply(num1, num2);
+        break;
+      case Operators.divide:
+        divide(num1, num2);
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  // Operations
   const add = (num1, num2) => num1 + num2;
   const substract = (num1, num2) => num1 - num2;
   const multiply = (num1, num2) => num1 * num2;

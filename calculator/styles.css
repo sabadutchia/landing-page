@@ -1,0 +1,55 @@
+body {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  width: 132px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container input {
+  width: 100%;
+  margin-bottom: 10px;
+  border: solid 1px orange;
+}
+
+.buttons-container {
+  display: flex;
+}
+
+.buttons-container .right-items {
+  display: flex;
+  flex-direction: column;
+  margin-left: 4px;
+}
+
+.container button {
+  width: 30px;
+  height: 30px;
+  margin: 3px 0px;
+  border-radius: 5px;
+  text-align: center;
+  border: solid orange 1px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.numbers button,
+.primary {
+  background-color: rgb(255, 218, 148);
+}
+
+.right-items button,
+.secondary {
+  background-color: orange;
+}
