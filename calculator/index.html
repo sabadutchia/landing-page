@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="values-input" />
+      <div class="buttons-container">
+        <div class="left-items">
+          <div class="numbers">
+            <button id="test">7</button>
+            <button>8</button>
+            <button>9</button>
+          </div>
+          <div class="numbers">
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+          </div>
+          <div class="numbers">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+          </div>
+          <div class="buttons">
+            <button class="secondary">C</button>
+            <button class="primary">0</button>
+            <button class="secondary">=</button>
+          </div>
+        </div>
+        <div class="right-items">
+          <button>+</button>
+          <button>-</button>
+          <button>x</button>
+          <button>/</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const OPERATORS = {
+    add: "+",
+    substract: "-",
+    multiply: "x",
+    divide: "/",
+    equals: "=",
+    clear: "C",
+  };
+
+  let num1 = "";
+  let num2 = "";
+  let operator;
+
+  const buttons = document.querySelectorAll("button");
+  const input = document.querySelector("#values-input");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const selectedButton = e.target.innerText;
+      if (selectedButton == OPERATORS.clear) {
+        input.value = "";
+        restartValues();
+      } else {
+        const isButtonOperator =
+          Object.values(OPERATORS).includes(selectedButton);
+        const isOperationComplete = num1 != "" && num2 != "" && !!operator;
+
+        if (isOperationComplete && isButtonOperator) {
+          input.value = `${operate(num1, num2, operator)}`;
+          restartValues();
+          num1 = `${input.value}`;
+        }
+
+        if (
+          selectedButton != OPERATORS.equals &&
+          Object.values(OPERATORS).includes(input.value.slice(-1)) &&
+          isButtonOperator
+        ) {
+          input.value = `${input.value.slice(0, -1)}${selectedButton}`;
+        } else {
+          input.value +=
+            selectedButton != OPERATORS.equals &&
+            selectedButton != OPERATORS.clear
+              ? selectedButton
+              : "";
+        }
+
+        // Assign values to vars
+        if (selectedButton != OPERATORS.equals) {
+          if (!!operator && !isButtonOperator) {
+            num2 += selectedButton;
+          } else if (!isButtonOperator) {
+            num1 += selectedButton;
+          } else {
+            operator = selectedButton;
+          }
+        }
+      }
+    });
+  });
+
+  const operate = (num1, num2, operator) => {
+    switch (operator) {
+      case OPERATORS.add:
+        return add(+num1, +num2);
+      case OPERATORS.substract:
+        return substract(num1, num2);
+      case OPERATORS.multiply:
+        return multiply(num1, num2);
+      case OPERATORS.divide:
+        return divide(num1, num2);
+
+      default:
+        break;
+    }
+  };
+
+  const restartValues = () => {
+    num1 = "";
+    num2 = "";
+    operator = null;
+  };
+
+  // Operations
+  const add = (num1, num2) => num1 + num2;
+  const substract = (num1, num2) => num1 - num2;
+  const multiply = (num1, num2) => num1 * num2;
+  const divide = (num1, num2) => num1 / num2;
+</script>
