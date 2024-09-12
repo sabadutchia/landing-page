@@ -3,22 +3,28 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   box-sizing: border-box;
+  height: 100vh;
 }
 
 .container {
-  height: 100vh;
+  padding: 20px;
+  height: 200px;
   width: 132px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: solid 4px orange;
+  background-color: rgb(255, 238, 206);
 }
 
 .container input {
   width: 100%;
-  margin-bottom: 10px;
-  border: solid 1px orange;
+  height: 20px;
+  margin-bottom: 15px;
+  border: solid 2px orange;
 }
 
 .buttons-container {
@@ -37,7 +43,8 @@ body {
   margin: 3px 0px;
   border-radius: 5px;
   text-align: center;
-  border: solid orange 1px;
+  border: solid orange 2px;
+  font-weight: bold;
 }
 
 button:hover {
